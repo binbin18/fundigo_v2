@@ -134,16 +134,4 @@
         android:textSize="12sp"
         android:minWidth="50dp"/>
 
-    <EditText
-        android:id="@+id/editTextTest"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:focusable="true"
-        android:focusableInTouchMode="true"
-        android:inputType="text"
-        android:textSize="24sp"
-        android:textColor="#000000"
-        android:hint="Write PLEASE!!"
-        android:background="#ffffff"/>
-
 </RelativeLayout>

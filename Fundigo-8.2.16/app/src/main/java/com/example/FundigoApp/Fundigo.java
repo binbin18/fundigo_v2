@@ -1,6 +1,9 @@
 package com.example.FundigoApp;
 
 import android.app.Application;
+import android.content.Context;
+import android.support.multidex.MultiDex;
+import android.util.Log;
 
 import com.example.FundigoApp.Chat.Message;
 import com.example.FundigoApp.Chat.MessageToCustomer;
@@ -35,9 +38,13 @@ public class Fundigo extends Application {
         ACRA.init (this);
         Parse.enableLocalDatastore (this);
         Parse.initialize (this);
-        try {
+        try
+        {
             ParseInstallation.getCurrentInstallation ().save ();
-        } catch (ParseException e) {
+        }
+        catch (ParseException e)
+        {
+            Log.e("message fro exceptoin",e.getMessage());
             e.printStackTrace ();
         }
         ParseInstallation.getCurrentInstallation ().getObjectId ();
@@ -58,4 +65,10 @@ public class Fundigo extends Application {
         ParseACL.setDefaultACL (defaultAcl, true);
         AccessToken.refreshCurrentAccessTokenAsync ();
     }
+    @Override
+    protected void attachBaseContext(Context base) {
+        super.attachBaseContext(base);
+        MultiDex.install(this);
+    }
+
 }
