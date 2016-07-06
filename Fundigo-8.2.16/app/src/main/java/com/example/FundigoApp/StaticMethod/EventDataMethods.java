@@ -3,6 +3,7 @@ package com.example.FundigoApp.StaticMethod;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 
 import com.example.FundigoApp.Events.Event;
 import com.example.FundigoApp.Events.EventInfo;
@@ -107,6 +108,7 @@ public class EventDataMethods {
             }
             ic.eventDataCallback ();
         } catch (ParseException e) {
+            Log.e("parse Ecxception",e.getLocalizedMessage());
             e.printStackTrace ();
         }
     }

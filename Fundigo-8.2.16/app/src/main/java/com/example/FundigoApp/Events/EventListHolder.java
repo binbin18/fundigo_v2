@@ -2,7 +2,6 @@ package com.example.FundigoApp.Events;
 
 
 import android.view.View;
-import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -17,7 +16,6 @@ public class EventListHolder {
     TextView price;
     TextView place;
     ImageView saveEvent;
-    EditText editText;
 
     public EventListHolder(View v) {
         image = (ImageView) v.findViewById (R.id.imageView);
@@ -27,6 +25,5 @@ public class EventListHolder {
         price = (TextView) v.findViewById (R.id.event_price);
         place = (TextView) v.findViewById (R.id.event_location);
         saveEvent = (ImageView) v.findViewById (R.id.imageView3);
-        editText = (EditText) v.findViewById (R.id.editTextTest);
     }
 }

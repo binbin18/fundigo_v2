@@ -257,7 +257,6 @@ public class FilterMethods {
                                                                  List<EventInfo> eventsListToFilter) {
         ArrayList<EventInfo> tempEventsList = new ArrayList<>();
         Date _currentDate = new Date();
-
         if (cityName.equals("All Cities") && currentFilterName.isEmpty() && subFilterName.isEmpty()
                     && dateFilter == null && priceFilter == -1) {
             tempEventsList.addAll (eventsListToFilter);

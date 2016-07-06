@@ -39,7 +39,6 @@ public class EventInfo {
     boolean isStadium;
     List<EventsSeats> eventsSeatsList;
     String picUrl;
-    String editTextEnetered = null;
 
     public EventInfo(String picUrl,
                      Date date,

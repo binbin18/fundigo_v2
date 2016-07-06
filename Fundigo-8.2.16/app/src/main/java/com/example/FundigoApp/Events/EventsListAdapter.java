@@ -8,10 +8,8 @@ import android.support.v7.app.AlertDialog;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.view.View.OnFocusChangeListener;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
-import android.widget.EditText;
 import android.widget.ImageView;
 
 import com.example.FundigoApp.DeepLinkActivity;
@@ -34,6 +32,7 @@ public class EventsListAdapter extends BaseAdapter {
     Context context;
     private ImageView iv_share;
     boolean isSavedActivity;
+    public int index;
     ImageLoader loader;
 
     public EventsListAdapter(Context c, List<EventInfo> eventList, boolean isSavedActivity) {
@@ -73,27 +72,8 @@ public class EventsListAdapter extends BaseAdapter {
         }
         final EventInfo event = eventList.get (i);
 
+        index = i;
         loader.displayImage (eventList.get (i).getPicUrl (), eventListHolder.image);
-        eventListHolder.editText.setId (i);
-        if(event.editTextEnetered != null) {
-            eventListHolder.editText.setText (event.editTextEnetered);
-        }
-        eventListHolder.editText
-                .setOnFocusChangeListener (new OnFocusChangeListener () {
-                    @Override
-                    public void onFocusChange(View v, boolean hasFocus) {
-                    /*0
-                     * When focus is lost save the entered value for
-                     * later use
-                     */
-                        if (!hasFocus) {
-                            int itemIndex = v.getId ();
-                            String enteredPrice = ((EditText) v).getText ()
-                                                          .toString ();
-                            eventList.get (itemIndex).editTextEnetered = enteredPrice;
-                        }
-                    }
-                });
         eventListHolder.date.setText (event.getDateAsString ());
         eventListHolder.name.setText (event.getName ());
         eventListHolder.tags.setText (event.getTags ());
